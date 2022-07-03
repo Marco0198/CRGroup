@@ -1,0 +1,1 @@
+please note that in order for to run this project just open the dist/index.html in your browser

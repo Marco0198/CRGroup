@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Corporate Renaissance Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+	<div class="title-container">
+		<div>
+			<h3 class="title">
+				Corporate Renaissance Group
+
+			</h3>
+		</div>
+		<div class="filters">
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Winter School 2022' }" v-on:click="setFilter('Winter School 2022')">Winter School 2022</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'School of Prayer' }" v-on:click="setFilter('School of Prayer')">School of Prayer</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Topic 200 - 250' }" v-on:click="setFilter('GIBC | Topic 200 - 250')">GIBC | Topic 200 - 250</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'English Church Services' }" v-on:click="setFilter('English Church Services')">English Church Services</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Questions and Answers' }" v-on:click="setFilter('Questions and Answers')">Questions and Answers</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Topic 151 - 200' }" v-on:click="setFilter('GIBC | Topic 151 - 200')">GIBC | Topic 151 - 200</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Topic 101 - 150' }" v-on:click="setFilter('GIBC | Topic 101 - 150')">GIBC | Topic 101 - 150</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Messages for SA' }" v-on:click="setFilter('Messages for SA')">Messages for SA</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Winter School 2021' }" v-on:click="setFilter('Winter School 2021')">Winter School 2021</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Topic 51 - 100' }" v-on:click="setFilter('GIBC | Topic 51 - 100')">GIBC | Topic 51 - 100</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Extra Topics' }" v-on:click="setFilter('GIBC | Extra Topics')">GIBC | Extra Topics</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'FHDC Announcements' }" v-on:click="setFilter('FHDC Announcements')">FHDC Announcements</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Week of Blessing' }" v-on:click="setFilter('Week of Blessing')">Week of Blessing</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Kings and Priests' }" v-on:click="setFilter('Kings and Priests')">Kings and Priests</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'GIBC | Topic 26 - 50' }" v-on:click="setFilter('GIBC | Topic 26 - 50')">GIBC | Topic 26 - 50</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Generation Impact Bible College' }" v-on:click="setFilter('Generation Impact Bible College')">Generation Impact Bible College</span>
+			<span class="filter" v-bind:class="{ active: currentFilter === 'Statement of Belief' }" v-on:click="setFilter('Statement of Belief')">Statement of Belief</span>
+		</div>
+	</div>
+
+	<transition-group class="projects" name="projects" >
+		<div class="project" v-if="currentFilter === project.Category || currentFilter === 'ALL'" v-bind:key="project.Id" v-for="project in projects">
+			<div class="project-image-wrapper">
+				<img class="project-image" v-bind:src="`https://arthurfrost.qflo.co.za/`+project.Image">
+				<div class="gradient-overlay"></div>
+				<div class="circle">
+					<span class="project-title">{{project.Title}}</span>
+				</div>
+				<div class="music-player">
+					<audio
+					  ref="audio"
+					  v-bind:src="`https://arthurfrost.qflo.co.za/`+project.Audio"
+					  playload
+					  loop
+					  id="audio"
+					  muted
+					></audio>
+					<div @click="toggleSound()" class="toggle-sound"></div>
+				  </div>
+			</div>
+		</div>
+	</transition-group>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
